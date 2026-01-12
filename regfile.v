@@ -1,6 +1,7 @@
-`define DATAWIDTH 32
+`ifndef REGFILE_V
+`define REGFILE_V
 
-module regfile (
+module regfile #(parameter DATAWIDTH = 32) (
     input clk,
     input resetn,
     input [3:0] readReg1,
@@ -26,12 +27,12 @@ module regfile (
     always @(posedge clk or negedge resetn) begin
         if(!resetn) begin
             for (i = 0; i < 16; i = i + 1) begin
-                registers[i] = 0;
+                registers[i] <= 0;
             end
         end
         else if(write) begin
-            registers[writeReg1] = writeData1;
-            registers[writeReg2] = writeData2;
+            registers[writeReg1] <= writeData1;
+            registers[writeReg2] <= writeData2;
         end
     end
 
@@ -41,7 +42,7 @@ module regfile (
         if (write && (readReg1 == writeReg1))      readData1 = writeData1;
         else if (write && (readReg1 == writeReg2)) readData1 = writeData2;
         else                                       readData1 = registers[readReg1];
-        
+
         // Θύρα 2
         if (write && (readReg2 == writeReg1))      readData2 = writeData1;
         else if (write && (readReg2 == writeReg2)) readData2 = writeData2;
@@ -59,3 +60,5 @@ module regfile (
     end
 
 endmodule
+
+`endif

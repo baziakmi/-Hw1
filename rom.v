@@ -1,3 +1,6 @@
+`ifndef ROM_V
+`define ROM_V
+
 module WEIGHT_BIAS_MEMORY #(parameter DATAWIDTH = 32) (
  input clk,
  input [7:0] addr1,
@@ -6,7 +9,7 @@ module WEIGHT_BIAS_MEMORY #(parameter DATAWIDTH = 32) (
  output reg [DATAWIDTH-1:0] dout2
  );
 
-reg [7:0] ROM [511:0];
+reg [7:0] ROM [0:511];
 
 initial
 begin
@@ -20,3 +23,5 @@ dout2 <= {ROM[addr2], ROM[addr2 + 1], ROM[addr2 + 2], ROM[addr2 + 3]};
 end
 
 endmodule
+
+`endif

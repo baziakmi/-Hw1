@@ -1,20 +1,23 @@
+`ifndef CALC_ENC_V   // Αν δεν έχει οριστεί η σημαία ALU_V...
+`define CALC_ENC_V
+
 module alu_op_0 (
     input btnl, btnr, btnd,
-    output reg result
+    output result
 );
     wire not1, not2, and1, and2, and3, or1;//wires for alu_op[0]
     assign not1 = ~btnl;
     assign not2 = ~btnd;
     assign and1 = not1 & btnd;
     assign and2 = btnl & btnr;
-    assign and3 = and1 & not2;
-    assign or1 = and1 | and2;
+    assign and3 = and2 & not2;
+    assign or1 = and1 | and3;
     assign result = or1;
 endmodule
 
 module alu_op_1 (
     input btnl, btnr, btnd,
-    output reg result
+    output result
 );
     wire not1, not2, or1, and1;//wires for alu_op[1]
     assign not1 = ~btnr;
@@ -26,7 +29,7 @@ endmodule
 
 module alu_op_2 (
     input btnl, btnr, btnd,
-    output reg result
+    output result
 );
     wire not1, not2, xor1, and1, and2, or1;//wires for alu_op[2]
     assign not1 = ~btnl;
@@ -40,7 +43,7 @@ endmodule
 
 module alu_op_3 (
     input btnl, btnr, btnd,
-    output reg result
+    output result
 );
     wire and1, and2, or1;//wires for alu_op[3]
     assign and1 = btnl & btnr;
@@ -82,3 +85,5 @@ module calc_enc (
     );
     assign alu_op = {op3, op2, op1, op0};
 endmodule
+
+`endif

@@ -1,8 +1,7 @@
 `include "alu.v"
 `include "regfile.v"
-`define SIZE 32
 
-module mac_unit (
+module mac_unit #(parameter SIZE = 32)(
     input [SIZE-1:0] op1,
     input [SIZE-1:0] op2,
     input [SIZE-1:0] op3,

@@ -1,10 +1,10 @@
+`ifndef CALC_V   // Αν δεν έχει οριστεί η σημαία ALU_V...
+`define CALC_V
+
 `include "alu.v"
 `include "calc_enc.v"
 
-`define OLD_SIZE 16
-`define NEW_SIZE 32
-
-module calc (
+module calc #(parameter OLD_SIZE = 16, parameter NEW_SIZE = 32) (
     input clk,
     input btnc,
     input btnac,
@@ -14,6 +14,7 @@ module calc (
     input signed [OLD_SIZE-1:0] sw,
     output reg signed [OLD_SIZE-1:0] led
 );
+
     reg signed [OLD_SIZE-1:0] accumulator;
 
     wire signed [NEW_SIZE-1:0] op1_extended;
@@ -28,7 +29,7 @@ module calc (
         .btnd(btnd),
         .alu_op(alu_operation)
     );
-    alu arithmetic_unit (
+    alu #(.SIZE(NEW_SIZE)) arithmetic_unit (
         .op1(op1_extended),
         .op2(op2_extended),
         .alu_op(alu_operation),
@@ -42,10 +43,10 @@ module calc (
     
     always @(posedge clk) begin
         if (btnac) begin
-            accumulator = 16'b0;
+            accumulator <= 16'b0;
         end
         else if (btnc) begin
-            accumulator = alu_result[OLD_SIZE-1:0];
+            accumulator <= alu_result[OLD_SIZE-1:0];
         end
     end
     
@@ -53,3 +54,5 @@ module calc (
         led = accumulator;
     end
 endmodule
+
+`endif

@@ -1,6 +1,7 @@
-`define SIZE 32
+`ifndef ALU_V    // Αν δεν έχει οριστεί η σημαία ALU_V...
+`define ALU_V    // ...όρισέ την τώρα
 
-module alu(
+module alu #(parameter SIZE = 32)(
     input [SIZE-1:0] op1,
     input [SIZE-1:0] op2,
     input [3:0] alu_op,
@@ -34,17 +35,19 @@ module alu(
             ALUOP_NAND:result = ~(op1 & op2);
             ALUOP_XOR: result = op1 ^ op2;
             ALUOP_ADD: begin
-                     result = op1 + op2;
-                     ovf = op1[SIZE-1] == op2[SIZE-1] && result[SIZE-1] != op1[SIZE-1];
+                     full_product = op1 + op2;  
+                     result = full_product[SIZE-1:0];
+                     ovf = (full_product[2*SIZE-1:SIZE-1] != { (SIZE+1){result[SIZE-1]} });
                      end
             ALUOP_SUB: begin
-                     result = op1 - op2;
-                     ovf = op1[SIZE-1] != op2[SIZE-1] && result[SIZE-1] != op1[SIZE-1];
+                     full_product = op1 - op2;  
+                     result = full_product[SIZE-1:0];
+                     ovf = (full_product[2*SIZE-1:SIZE-1] != { (SIZE+1){result[SIZE-1]} });
                      end
             ALUOP_MUL: begin
-                     full_product = op1 * op2;  
+                     full_product = $signed(op1) * $signed(op2);
                      result = full_product[SIZE-1:0];
-                     ovf = (full_product[2*SIZE-1:SIZE-1] != {SIZE{result[SIZE-1]}});
+                     ovf = (full_product[2*SIZE-1:SIZE-1] != { (SIZE+1){result[SIZE-1]} });
                      end
             ALUOP_SRL: result = op1 >> op2;
             ALUOP_SLL: result = op1 << op2;
@@ -59,3 +62,5 @@ module alu(
             zero = 1'b0;
     end
 endmodule
+
+`endif
