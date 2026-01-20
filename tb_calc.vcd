@@ -1,0 +1,590 @@
+$date
+	Tue Jan 20 02:07:54 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_calc $end
+$var wire 16 ! led [15:0] $end
+$var parameter 32 " NEW_SIZE $end
+$var parameter 32 # OLD_SIZE $end
+$var reg 1 $ btnac $end
+$var reg 1 % btnc $end
+$var reg 1 & btnd $end
+$var reg 1 ' btnl $end
+$var reg 1 ( btnr $end
+$var reg 1 ) clk $end
+$var reg 16 * sw [15:0] $end
+$scope module uut $end
+$var wire 1 $ btnac $end
+$var wire 1 % btnc $end
+$var wire 1 & btnd $end
+$var wire 1 ' btnl $end
+$var wire 1 ( btnr $end
+$var wire 1 ) clk $end
+$var wire 16 + sw [15:0] $end
+$var wire 32 , op2_extended [31:0] $end
+$var wire 32 - op1_extended [31:0] $end
+$var wire 1 . alu_zero $end
+$var wire 32 / alu_result [31:0] $end
+$var wire 1 0 alu_ovf $end
+$var wire 4 1 alu_operation [3:0] $end
+$var parameter 32 2 NEW_SIZE $end
+$var parameter 32 3 OLD_SIZE $end
+$var reg 16 4 accumulator [15:0] $end
+$var reg 16 5 led [15:0] $end
+$scope module arithmetic_unit $end
+$var wire 32 6 op1 [31:0] $end
+$var wire 32 7 op2 [31:0] $end
+$var wire 4 8 alu_op [3:0] $end
+$var parameter 4 9 ALUOP_ADD $end
+$var parameter 4 : ALUOP_AND $end
+$var parameter 4 ; ALUOP_MUL $end
+$var parameter 4 < ALUOP_NAND $end
+$var parameter 4 = ALUOP_NOR $end
+$var parameter 4 > ALUOP_OR $end
+$var parameter 4 ? ALUOP_SLL $end
+$var parameter 4 @ ALUOP_SLLV $end
+$var parameter 4 A ALUOP_SRA $end
+$var parameter 4 B ALUOP_SRL $end
+$var parameter 4 C ALUOP_SUB $end
+$var parameter 4 D ALUOP_XOR $end
+$var parameter 32 E SIZE $end
+$var reg 64 F full_product [63:0] $end
+$var reg 1 0 ovf $end
+$var reg 32 G result [31:0] $end
+$var reg 1 . zero $end
+$upscope $end
+$scope module encoder $end
+$var wire 1 & btnd $end
+$var wire 1 ' btnl $end
+$var wire 1 ( btnr $end
+$var wire 1 H op3 $end
+$var wire 1 I op2 $end
+$var wire 1 J op1 $end
+$var wire 1 K op0 $end
+$var wire 4 L alu_op [3:0] $end
+$scope module u0 $end
+$var wire 1 M and1 $end
+$var wire 1 N and2 $end
+$var wire 1 O and3 $end
+$var wire 1 & btnd $end
+$var wire 1 ' btnl $end
+$var wire 1 ( btnr $end
+$var wire 1 P not1 $end
+$var wire 1 Q not2 $end
+$var wire 1 R or1 $end
+$var wire 1 K result $end
+$upscope $end
+$scope module u1 $end
+$var wire 1 S and1 $end
+$var wire 1 & btnd $end
+$var wire 1 ' btnl $end
+$var wire 1 ( btnr $end
+$var wire 1 T not1 $end
+$var wire 1 U not2 $end
+$var wire 1 V or1 $end
+$var wire 1 J result $end
+$upscope $end
+$scope module u2 $end
+$var wire 1 W and1 $end
+$var wire 1 X and2 $end
+$var wire 1 & btnd $end
+$var wire 1 ' btnl $end
+$var wire 1 ( btnr $end
+$var wire 1 Y not1 $end
+$var wire 1 Z not2 $end
+$var wire 1 [ or1 $end
+$var wire 1 I result $end
+$var wire 1 \ xor1 $end
+$upscope $end
+$scope module u3 $end
+$var wire 1 ] and1 $end
+$var wire 1 ^ and2 $end
+$var wire 1 & btnd $end
+$var wire 1 ' btnl $end
+$var wire 1 ( btnr $end
+$var wire 1 _ or1 $end
+$var wire 1 H result $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b100000 E
+b1100 D
+b101 C
+b0 B
+b10 A
+b11 @
+b1 ?
+b1001 >
+b1010 =
+b1011 <
+b110 ;
+b1000 :
+b100 9
+b10000 3
+b100000 2
+b10000 #
+b100000 "
+$end
+#0
+$dumpvars
+0_
+0^
+0]
+0\
+0[
+1Z
+1Y
+0X
+0W
+1V
+1U
+1T
+0S
+0R
+1Q
+1P
+0O
+0N
+0M
+b0 L
+0K
+0J
+0I
+0H
+bx G
+b0 F
+b0 8
+b0 7
+bx 6
+bx 5
+bx 4
+b0 1
+00
+bx /
+0.
+bx -
+b0 ,
+b0 +
+b0 *
+0)
+0(
+0'
+0&
+0%
+0$
+bx !
+$end
+#5000
+1)
+#10000
+0)
+1$
+#15000
+1.
+b0 !
+b0 5
+b0 /
+b0 G
+b0 -
+b0 6
+b0 4
+1)
+#20000
+0)
+0$
+#25000
+1)
+#30000
+0.
+b10100001011010 /
+b10100001011010 G
+b10100001011010 F
+b100 1
+b100 8
+b100 L
+1I
+1[
+0Z
+0T
+1W
+1\
+0)
+1(
+b10100001011010 ,
+b10100001011010 7
+b10100001011010 *
+b10100001011010 +
+#35000
+1)
+#40000
+0)
+1%
+#45000
+b10100001011010 !
+b10100001011010 5
+b101000010110100 /
+b101000010110100 G
+b101000010110100 F
+b10100001011010 -
+b10100001011010 6
+b10100001011010 4
+1)
+#50000
+0)
+0%
+#55000
+1)
+#60000
+1X
+1I
+1[
+0V
+1Z
+0.
+0W
+1H
+1_
+0Q
+0U
+0\
+0P
+1N
+b1100 1
+b1100 8
+b1100 L
+0J
+0S
+0Y
+1]
+1^
+b10110010010010 /
+b10110010010010 G
+b0 F
+0)
+1&
+1'
+b10011001000 ,
+b10011001000 7
+b10011001000 *
+b10011001000 +
+#65000
+1)
+#70000
+0)
+1%
+#75000
+b10110010010010 !
+b10110010010010 5
+b10100001011010 /
+b10100001011010 G
+b10110010010010 -
+b10110010010010 6
+b10110010010010 4
+1)
+#80000
+0)
+0%
+#85000
+1)
+#90000
+1V
+0I
+0[
+b0 1
+b0 8
+b0 L
+0H
+0_
+1Q
+1U
+1T
+1P
+0N
+1Y
+0X
+0]
+0^
+b101100100 /
+b101100100 G
+0)
+0&
+0(
+0'
+b101 ,
+b101 7
+b101 *
+b101 +
+#95000
+1)
+#100000
+0)
+1%
+#105000
+b101100100 !
+b101100100 5
+b1011 /
+b1011 G
+b101100100 -
+b101100100 6
+b101100100 4
+1)
+#110000
+0)
+0%
+#115000
+1)
+#120000
+0Z
+0I
+0[
+1H
+1_
+0Q
+0U
+1\
+0P
+b1010 1
+b1010 8
+b1010 L
+1J
+1S
+0Y
+0X
+1^
+0.
+b101111000011010 /
+b101111000011010 G
+0)
+1&
+1'
+b11111111111111111010000010000101 ,
+b11111111111111111010000010000101 7
+b1010000010000101 *
+b1010000010000101 +
+#125000
+1)
+#130000
+0)
+1%
+#135000
+b101111000011010 !
+b101111000011010 5
+b101100000 /
+b101100000 G
+b101111000011010 -
+b101111000011010 6
+b101111000011010 4
+1)
+#140000
+0)
+0%
+#145000
+1)
+#150000
+b10111100000001001111001100 F
+1I
+1[
+1X
+0.
+1Z
+b110 1
+b110 8
+b110 L
+0H
+0_
+1Q
+1U
+0\
+0^
+b10111100000001001111001100 /
+b10111100000001001111001100 G
+0)
+0&
+b11111111110 ,
+b11111111110 7
+b11111111110 *
+b11111111110 +
+#155000
+1)
+#160000
+0)
+1%
+#165000
+b1001111001100 !
+b1001111001100 5
+b100111100011100001101000 /
+b100111100011100001101000 G
+b100111100011100001101000 F
+b1001111001100 -
+b1001111001100 6
+b1001111001100 4
+1)
+#170000
+0)
+0%
+#175000
+1)
+#180000
+1K
+1R
+0Z
+0I
+0[
+0Q
+1M
+0U
+1\
+1P
+b1 1
+b1 8
+b1 L
+0J
+0S
+1Y
+0X
+b10011110011000000 /
+b10011110011000000 G
+b10011110011000000 F
+0)
+1&
+0'
+b100 ,
+b100 7
+b100 *
+b100 +
+#185000
+1)
+#190000
+0)
+1%
+#195000
+b11110011000000 !
+b11110011000000 5
+b111100110000000000 /
+b111100110000000000 G
+b111100110000000000 F
+b11110011000000 -
+b11110011000000 6
+b11110011000000 4
+1)
+#200000
+0)
+0%
+#205000
+1)
+#210000
+1O
+1H
+1_
+1Q
+0M
+1U
+0T
+0P
+1N
+b1011 1
+b1011 8
+b1011 L
+1J
+1S
+0Y
+1]
+0.
+b11111111111111111100011110111111 /
+b11111111111111111100011110111111 G
+b0 F
+0)
+0&
+1(
+1'
+b11111111111111111111101001100101 ,
+b11111111111111111111101001100101 7
+b1111101001100101 *
+b1111101001100101 +
+#215000
+1)
+#220000
+0)
+1%
+#225000
+b1100011110111111 !
+b1100011110111111 5
+b11110111011010 /
+b11110111011010 G
+b11111111111111111100011110111111 -
+b11111111111111111100011110111111 6
+b1100011110111111 4
+1)
+#230000
+0)
+0%
+#235000
+1)
+#240000
+b1010011011011 F
+1I
+1[
+0V
+1Z
+0O
+0.
+1W
+0H
+0_
+0Q
+1M
+0U
+0\
+1P
+0N
+b101 1
+b101 8
+b101 L
+0J
+0S
+1Y
+0]
+b1010011011011 /
+b1010011011011 G
+0)
+1&
+0'
+b11111111111111111011001011100100 ,
+b11111111111111111011001011100100 7
+b1011001011100100 *
+b1011001011100100 +
+#245000
+1)
+#250000
+0)
+1%
+#255000
+b1010011011011 !
+b1010011011011 5
+b110000111110111 /
+b110000111110111 G
+b110000111110111 F
+b1010011011011 -
+b1010011011011 6
+b1010011011011 4
+1)
+#260000
+0)
+0%
+#265000
+1)
+#270000
+0)
+#275000
+1)
+#280000
+0)
